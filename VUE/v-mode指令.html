@@ -1,0 +1,42 @@
+<!--
+    v-model指令的作用是便捷的设置和获取表单元素的值
+
+    绑定的数据会和表单元素的值相关联
+
+    绑定的数据<->表单元素的数据
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="设置message" @click="setMessage">
+        <input type="text" v-model="message" @keyup.enter="getMessage">
+        <h3>{{message}}</h3>
+    </div>
+        <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:"你好"
+            },
+            methods:{
+                getMessage:function(){
+                    alert(this.message)
+                },
+                setMessage:function(){
+                    this.message="hello"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

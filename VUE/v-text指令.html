@@ -1,0 +1,34 @@
+<!--
+    v-tetx指令：
+        1、v-text指令的作用是：设置标签的内容（textContent）
+
+        2、默认写法会替换全部内容，使用差值表达式{{}}可以替换指定的内容
+        
+        3、内部支持写表达式
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-tetx指令</title>
+</head>
+<body>
+    <div id="app">
+        <h2 v-text="message+'!'">程序员</h2>
+        <h3>{{message+"!"}}程序员</h3>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>  
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:"万事万物皆对象",
+            }
+        })
+    </script>
+</body>
+</html>

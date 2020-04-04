@@ -1,0 +1,63 @@
+<!--
+    列表数据使用数组保存
+
+    v-bind指令可以设置元素属性，比如src
+
+    v-show和v-if都可以切换元素的显示状态，频繁切换用v-show
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>图片切换</title>
+    <link rel="stylesheet" href="./css/index.css" />
+</head>
+<body>
+    <div id="mask">
+        <div class="center">
+            <img :src="imgArr[index]">
+            <!--左箭头-->
+          <!-- <a href="javascript:void(0)" class="left"
+            v-show="index!=0" @click="prev">
+                <img src="./imgs/prev.jpg" > 
+            </a> -->
+            <a href="javascript:void(0)" class="left"
+            v-if="index!=0" @click="prev">
+                <img src="./imgs/prev.jpg" > 
+            </a> 
+            <!--右箭头-->
+            <a href="javascript:void(0)" class="right" 
+            v-show="index<imgArr.length-1" @click="next">
+                <img src="./imgs/next.jpg"> 
+            </a> 
+        </div>
+    </div>
+     <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+     <script>
+         var mask = new Vue({
+             el:"#mask",
+             data:{
+                 imgArr:[
+                     "./imgs/01.jpg",
+                     "./imgs/02.jpg",
+                     "./imgs/03.jpg",
+                     "./imgs/04.jpg"
+                 ],
+                 index:0
+             },
+             methods:{
+                prev:function(){
+                    this.index--;
+                },
+                next:function(){
+                    this.index++;
+                }
+             }
+         })
+     </script>
+</body>
+</html>

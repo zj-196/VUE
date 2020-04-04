@@ -1,0 +1,59 @@
+<!--
+    axios必须先导入才可以使用
+
+    使用get或post方法即可发送对应的请求
+
+    then方法中的回调函数会在请求成功或失败时触发
+
+    通过回调函数的形参可以获取响应内容或错误信息
+
+    了解axios更多用法请上：https://github.com/axios/axios
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="axios:get请求" class="get">
+    <input type="button" value="axios:post请求" class="post">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        /*
+            接口1:随机笑话
+            请求地址:https://autumnfish.cn/api/joke/list
+            请求方法:get
+            请求参数:num(笑话条数,数字)
+            响应内容:随机笑话
+        */
+        document.querySelector(".get").onclick = function () {
+            axios.get("https://autumnfish.cn/api/joke/list?num=4")
+            // axios.get("https://autumnfish.cn/api/joke/qewqeq?num=6")
+            .then(function (response) {
+                console.log(response);
+              },function(err){
+                  console.log(err);
+              })
+        }
+        /*
+             接口2:用户注册
+             请求地址:https://autumnfish.cn/api/user/reg
+             请求方法:post
+             请求参数:username(用户名,字符串)
+             响应内容:注册成功或失败
+         */
+         document.querySelector(".post").onclick = function(){
+            axios.post("https://autumnfish.cn/api/user/reg",{username:"asgdyufgq"})
+            .then(function(response){
+                console.log(response);
+            },function(err){
+                console.log(err);
+            })
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!--
+    创建Vue实例时：el（挂载点），data（数据），methods（方法）
+
+    v-on指令的作用是绑定事件，简写为@
+
+    方法中通过this关键字获取data中的数据
+
+    v-text指令的作用是：设置文本的元素值，简写为{{}}
+
+    v-html指令的作用是：设置元素的innerHTML
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>计数器</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div id="app">
+        <div class="input-num">
+            <button @click="sub">-</button>
+            <span>{{num}}</span>
+            <button @click="add">+</button>
+        </div>
+        <img src="http://www.itheima.com/images/logo.png"/>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                num:1
+            },
+            methods:{
+                add:function(){
+                    if(this.num<10){
+                        this.num++
+                    }else{
+                        alert("已达上限")
+                    }
+                },
+                sub:function(){
+                    if(this.num>0){
+                        this.num--
+                    }else{
+                        alert("已达下限")
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

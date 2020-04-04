@@ -1,0 +1,50 @@
+<!--
+    v-bind指令的作用是：为元素绑定属性
+
+    完整写法是：v-bind：属性名
+
+    简写的话可以直接省略v-bind，只保留：属性名
+
+    需要动态的增删class建议使用对象的方式
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind指令</title>
+    <style>
+        .active{
+            border:10px  solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <img v-bind:src="imgSrc">
+        <br>
+        <img :src="imgSrc" :title="imgTitle+'!!!!'" :class="isActive?'active':''" @click="changeActive">
+        <br>
+        <img :src="imgSrc" :title="imgTitle+'!!!'" :class="{active:isActive}" @click="changeActive">
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                imgSrc:"shaosiming.jpg",
+                imgTitle:"少司命",
+                isActive:false
+            },
+            methods:{
+                changeActive:function(){
+                    this.isActive = !this.isActive
+                }
+            }
+        })
+    </script>
+</body>
+</html>

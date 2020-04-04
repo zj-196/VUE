@@ -1,0 +1,43 @@
+<!--
+  vue 简介
+    1、是javascript的框架
+
+    2、简化了Dom操作
+    
+    3、响应式的数据驱动
+
+  第一个vue程序：
+    1、导入开发版本的Vue.js：
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+    2、创建Vue实例对象，设置el属性和data属性
+
+    3、使用简洁的模板语法把数据渲染到页面上
+      Vue.js 的核心是一个允许采用简洁的模板语法来声明式地将数据渲染进 DOM 的系统：
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue基础</title>
+</head>
+<body>
+  <div id="app">
+    {{message}}
+  </div>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el:'#app',
+      data:{
+        message:'Hello Vue!'
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!--
+    v-if指令的作用是：根据表达式的真假切换元素的显示状态
+
+    本质是通过操纵dom元素来切换显示状态
+
+    表达式的值为true，元素存在于dom树中，为false，从dom树中移除
+
+    频繁切换v-show，反之使用v-if，前者切换的消耗较小
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if指令</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="changeIsShow">点击切换显示</button>
+        <p v-if="isShow">天下武功，唯快不破！</p>
+        <button @click="changeTemperature">点击隐藏温度</button>
+        <button @click="changeTemperature2">点击显示温度</button>
+        <p v-show="temperature>30">热死了！！！</p>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                isShow:false,
+                temperature:20
+            },
+            methods:{
+                changeIsShow:function(){
+                    this.isShow = !this.isShow
+                },
+                changeTemperature:function(){
+                    this.temperature = 20
+                },
+                changeTemperature2:function(){
+                    this.temperature = 35
+                }
+            }
+        })
+    </script>
+</body>
+</html>

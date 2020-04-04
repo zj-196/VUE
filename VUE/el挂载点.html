@@ -1,0 +1,37 @@
+<!--
+    Vue实例的作用范围：
+        Vue会管理el选项命中的元素及其内部的后代元素
+    
+    可以使用其他的选择器，但是建议使用ID选择器（唯一）
+
+    可以使用其他的双标签，但是不能使用HTML和BODY
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>el挂载点</title>
+</head>
+<body>
+    {{message}}
+    <div id="app" class="app">
+        {{message}}
+        <span>{{message}}</span>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            //el:".app",
+            //el:"div",
+            data:{
+                message:"华山剑法！"
+            }
+        })
+    </script>
+</body>
+</html>

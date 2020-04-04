@@ -1,0 +1,44 @@
+<!--
+    事件绑定的方法写成函数调用的形式，可以传入自定义参数
+
+    定义方法时需要定义形参来接收传入的实参
+
+    事件的后面跟上.修饰符可以对事件进行限制
+
+    .enter可以限制触发的按键为回车
+
+    事件修饰符有多种
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on指令补充</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="点击" @click="doIt('老铁',666)"> 
+        <input type="text" @keyup.enter="sayHi">
+    </div>
+        <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            methods:{
+                doIt:function(p1,p2){
+                    console.log("点击！！！");
+                    console.log(p1);
+                    alert(p2);
+                },
+                sayHi:function(){
+                    alert("输入完毕！！！")
+                }
+            }
+        })
+    </script>
+</body>
+</html>
